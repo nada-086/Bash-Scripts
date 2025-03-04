@@ -9,8 +9,6 @@ sudo yum update
 sudo yum install git -y                                                                                                 
 git clone https://github.com/nada-086/ToDo-App.git ToDo-App         
 
-# Database Setup                                                                                                        
-sudo yum install sqlite -y    
 
 # Setting Up Python Environement                                                                                        
 sudo yum install python3 python3-pip -y                                                                                                                                                                                            
@@ -19,6 +17,13 @@ cd ToDo-App
 python3 -m venv venv                                                                                                    
 source venv/bin/activate                                                                                                
 pip install -r requirements.txt
+
+# Database Setup                                                                                                        
+sudo yum install sqlite -y    
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+
 
 # Setting Up Gunicorn                                                                                                   
 pip install gunicorn                                                                                                    

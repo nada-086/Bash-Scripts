@@ -24,13 +24,7 @@ git clone https://github.com/nada-086/ToDo-App.git ToDo-App
 - Installs Git.
 - Clones the Flask To-Do App repository.
 
-### 2. Database Setup
-```bash
-sudo yum install sqlite -y
-```
-- Installs SQLite, the database used by the Flask application.
-
-### 3. Setting Up Python Environment
+### 2. Setting Up Python Environment
 ```bash
 sudo yum install python3 python3-pip -y
 cd ToDo-App
@@ -41,6 +35,16 @@ pip install -r requirements.txt
 - Installs Python 3 and pip.
 - Creates and activates a Python virtual environment.
 - Installs project dependencies from `requirements.txt`.
+
+### 5. Database Setup
+```bash
+sudo yum install sqlite -y
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+```
+- Installs SQLite, the database used by the Flask application.
+- Initializes Flask Migrator to build the database tables.
 
 ### 4. Running Gunicorn
 ```bash
